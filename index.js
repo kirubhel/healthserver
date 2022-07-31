@@ -6,7 +6,7 @@ let bodyParser = require("body-parser");
 const userRoute = require("./routes/user.route");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/HealthConcultancy")
+  .connect("mongodb://127.0.0.1:27017/HealthConcultancy2")
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -23,7 +23,7 @@ app.use(
   })
 );
 app.use(cors());
-app.use("/users", userRoute);
+app.use("/api/users", userRoute);
 
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
