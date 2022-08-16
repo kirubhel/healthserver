@@ -8,6 +8,8 @@ const jwt = require ('jsonwebtoken')
 
 
 router.route("/create").post((req, res, next) => {
+
+  
 user.create(req.body, (error, data) => {
   if (error) {
      res.json({data:error.message,status:false});
@@ -21,7 +23,7 @@ user.create(req.body, (error, data) => {
 
 router.route("/login").post(async(req,res)=>{
 
-
+console.log(req.body)
   const us =  await user.findOne ({
     email : req.body.email,
     password:req.body.password
